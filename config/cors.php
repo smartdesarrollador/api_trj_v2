@@ -20,7 +20,13 @@ return [
     'allowed_methods' => ['*'],
 
     /* 'allowed_origins' => ['https://www.iatecdigital.com', 'https://iatecdigital.com'], */
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [
+        'https://admin-tarjeta-holografico.smartdigitaltec.com',
+        'https://tarjeta-holografico.smartdigitaltec.com',
+        'http://localhost:4200',
+        'http://localhost:5000',
+        'http://localhost:7000'
+    ],
 
     'allowed_origins_patterns' => [],
 
