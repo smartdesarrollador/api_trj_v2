@@ -33,11 +33,16 @@ class DigitalCardController extends Controller
                 $q->where('name', 'LIKE', "%{$search}%");
             });
         }
-        
+
+        // Filtro por ID de usuario específico (para administradores)
+        if ($request->has('user_id') && !empty($request->user_id) && Auth::user()->rol === 'administrador') {
+            $query->where('user_id', $request->user_id);
+        }
+
         if ($request->has('status') && $request->status !== 'all') {
             $query->where('is_active', $request->status === 'active');
         }
-        
+
         if ($request->has('visibility') && $request->visibility !== 'all') {
             $query->where('is_public', $request->visibility === 'public');
         }
